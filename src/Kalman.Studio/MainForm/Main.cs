@@ -18,7 +18,7 @@ namespace Kalman.Studio
     public partial class Main : Form
     {
         DatabaseExplorer dbExplorer = new DatabaseExplorer();
-        StartForm startForm = new StartForm();
+        //StartForm startForm = new StartForm();
         private Output output = new Output();
         //DbSchemaViewer viewer = new DbSchemaViewer();
         CodeExplorer codeExplorer = new CodeExplorer();
@@ -36,7 +36,7 @@ namespace Kalman.Studio
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
-            startForm.Show(dockPanel);
+            //startForm.Show(dockPanel);
             output.Show(dockPanel);
             dbExplorer.Show(dockPanel);
 
