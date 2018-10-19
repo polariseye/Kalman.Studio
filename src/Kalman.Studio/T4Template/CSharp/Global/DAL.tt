@@ -73,7 +73,7 @@ namespace <#= nameSpace #>
         /// <summary>
         /// 初始化此类所能用到的所有sql语句
         /// </summary>
-        static ChargeLogDAL()
+        static <#= className#>DAL()
         {
             getAllCommand = String.Format("SELECT {0} FROM <#=table.Name#>;", columns);
             replaceCommand = "REPLACE INTO <#=table.Name#>  SET <#=String.Join(", ", colList.Select(tmp=>String.Format("{0}=@{0}", tmp.Name)))#> ;";
