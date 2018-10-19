@@ -371,6 +371,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.tt</DependentUpon>
     </Compile>
+    <Compile Include="T4Template\CSharp\Global\BLL_List.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BLL_List.tt</DependentUpon>
+    </Compile>
     <Compile Include="T4Template\CSharp\Global\DAL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -955,6 +960,10 @@
       <LastGenOutput>DAL.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="T4Template\CSharp\Global\BLL_List.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BLL_List.cs</LastGenOutput>
+    </Content>
     <Content Include="T4Template\Node.js\Egg\.autod.conf.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

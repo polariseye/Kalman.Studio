@@ -57,6 +57,44 @@ namespace Kalman.Studio.T4Template.CSharp.Global
             
             #line default
             #line hidden
+            this.Write("//*******************************************************************************" +
+                    "****\r\n// 文件名称：");
+            
+            #line 31 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\BLL_List.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(className));
+            
+            #line default
+            #line hidden
+            this.Write("BLL.cs\r\n// 功能描述：");
+            
+            #line 32 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\BLL_List.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(table.Comment == "" ? table.Name : table.Comment.Replace("\r\n"," ")));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n// 数据表：");
+            
+            #line 33 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\BLL_List.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(table.Name));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n// 作者：");
+            
+            #line 34 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\BLL_List.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(authorName));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n// 日期：");
+            
+            #line 35 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\BLL_List.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DateTime.Now.ToDateTimeString()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n// 修改记录：\r\n//*******************************************************************" +
+                    "****************");
             return this.GenerationEnvironment.ToString();
         }
     }
