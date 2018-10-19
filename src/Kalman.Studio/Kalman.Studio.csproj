@@ -960,10 +960,10 @@
       <LastGenOutput>DAL.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="T4Template\CSharp\Global\BLL_List.tt">
+    <None Include="T4Template\CSharp\Global\BLL_List.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>BLL_List.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="T4Template\Node.js\Egg\.autod.conf.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

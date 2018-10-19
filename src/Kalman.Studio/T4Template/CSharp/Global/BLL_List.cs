@@ -97,6 +97,21 @@ namespace Kalman.Studio.T4Template.CSharp.Global
                     "****************");
             return this.GenerationEnvironment.ToString();
         }
+        private global::Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost hostValue;
+        /// <summary>
+        /// The current host for the text templating engine
+        /// </summary>
+        public virtual global::Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost Host
+        {
+            get
+            {
+                return this.hostValue;
+            }
+            set
+            {
+                this.hostValue = value;
+            }
+        }
     }
     
     #line default
