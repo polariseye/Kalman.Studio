@@ -254,7 +254,7 @@ namespace Kalman.Utilities
                 case DbType.Boolean:
                     return "Boolean";
                 case DbType.Byte://?
-                    return "Int32";
+                    return "Boolean";
                 case DbType.Currency:
                     return "Double";
                 case DbType.Date:
@@ -280,7 +280,7 @@ namespace Kalman.Utilities
                 case DbType.Object:
                     return "Object";
                 case DbType.SByte:
-                    return "SByte";
+                    return "Boolean";
                 case DbType.Single:
                     return "Single";
                 case DbType.Time:
