@@ -18,8 +18,9 @@ namespace Kalman.Studio
     public partial class Main : Form
     {
         DatabaseExplorer dbExplorer = new DatabaseExplorer();
-        //StartForm startForm = new StartForm();
+        StartForm startForm = new StartForm();
         private Output output = new Output();
+        private Terminal terminal = new Terminal();
         //DbSchemaViewer viewer = new DbSchemaViewer();
         CodeExplorer codeExplorer = new CodeExplorer();
         TemplateExplorer templateExplorer = new TemplateExplorer();
@@ -36,9 +37,10 @@ namespace Kalman.Studio
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
-            //startForm.Show(dockPanel);
-            output.Show(dockPanel);
+            startForm.Show(dockPanel);
             dbExplorer.Show(dockPanel);
+            output.Show(dockPanel);
+            terminal.Show(dockPanel);
 
             Text = Text + @" v" + Application.ProductVersion;
         }
@@ -287,7 +289,10 @@ namespace Kalman.Studio
         {
             ShowOutput();
         }
-
+        private void tsnuTerminal_Click(object sender, EventArgs e)
+        {
+            ShowTerminal();
+        }
         #region DoShow
         public void ShowDbExplorer()
         {
@@ -352,6 +357,22 @@ namespace Kalman.Studio
                 output.Hide();
             }
             menuItemOutput.Checked = !menuItemOutput.Checked;
+        }
+        public void ShowTerminal(bool renew = false)
+        {
+            if (!tsmiTerminal.Checked)
+            {
+                terminal.Show(dockPanel, DockState.DockBottomAutoHide);
+            }
+            else
+            {
+                terminal.Hide();
+            }
+            tsmiTerminal.Checked = !tsmiTerminal.Checked;
+            if (renew)
+            {
+                terminal = new Terminal();
+            }
         }
         #endregion
 
@@ -617,6 +638,10 @@ namespace Kalman.Studio
             output.ClearText();
         }
 
+        public void RunApp(string appName, string workingDirectory = null)
+        {
+            terminal.RunApp(appName, workingDirectory);
+        }
         #endregion
 
         #region 状态栏

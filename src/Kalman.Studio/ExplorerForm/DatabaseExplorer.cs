@@ -143,7 +143,7 @@ namespace Kalman.Studio
             }
             else
             {
-                Config.MainForm.toolItemDbList.Text = tn.Text;
+                Config.MainForm.toolItemDbList.Text= tn.Text;
             }
         }
 
@@ -466,7 +466,7 @@ namespace Kalman.Studio
         private void btnSetConnectString_Click(object sender, EventArgs e)
         {
             var dbSettingForm = new DatabaseSettingForm();
-            if (dbSettingForm.ShowDialog() == DialogResult.Yes)
+            if(dbSettingForm.ShowDialog() == DialogResult.Yes)
             {
                 RefreshDatabase();
             }
@@ -481,7 +481,7 @@ namespace Kalman.Studio
             //dal.InitData();
 
             var list = dal.FindAll().ToList();
-
+            
             foreach (var item in list)
             {
                 if (item.IsActive)

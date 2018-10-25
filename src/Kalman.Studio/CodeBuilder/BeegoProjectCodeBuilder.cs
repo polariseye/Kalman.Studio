@@ -27,6 +27,18 @@ namespace Kalman.Studio
             InitializeComponent();
         }
 
+        ~BeegoProjectCodeBuilder()
+        {
+            var proecesses = Process.GetProcesses();
+            foreach (var process in proecesses)
+            {
+                if (process.ProcessName == "bee")
+                {
+                    process.Kill(); //杀死bee进程
+                }
+            }
+        }
+
         private void BeegoProjectCodeBuilder_Load(object sender, EventArgs e)
         {
             RefreshDatabase();
@@ -90,7 +102,8 @@ namespace Kalman.Studio
                 {
 
                     CmdHelper.CreateBat(Config.TEMP_BAT_FILENAME, "go get -u github.com/astaxie/beego \r\ngo get -u github.com/beego/bee");
-                    CmdHelper.RunApp(Config.TEMP_BAT_FILENAME, ProcessWindowStyle.Normal, GOPATH);
+                    //CmdHelper.RunApp(Config.TEMP_BAT_FILENAME, ProcessWindowStyle.Normal, GOPATH);
+                    Config.MainForm.RunApp(Config.TEMP_BAT_FILENAME, GOPATH);
                     Help.ShowHelp(this, "https://beego.me/quickstart");
                 };
                 return;
@@ -159,7 +172,7 @@ namespace Kalman.Studio
                 cmdString = "bee {0} {1} -driver=\"sqlite\" -conn=\"{2}\"";
             }
 
-            string server = "127.0.0.1", port = "3306", user = "root", password = "", db = "";
+            string server = "127.0.0.1", port = "3306", user = "root", password = "", db = currentDatabase.Name;
             var connectionString = currentDatabase.Parent.DbProvider.ConnectionString;
             var conn = connectionString.Split(';');
             #region 获取服务器信息
@@ -184,10 +197,10 @@ namespace Kalman.Studio
                     {
                         password = val[1].Trim();
                     }
-                    if (val[0].ToLower().Trim() == "database")
-                    {
-                        db = val[1].Trim();
-                    }
+                    //if (val[0].ToLower().Trim() == "database")
+                    //{
+                    //    db = val[1].Trim();
+                    //}
                 }
                 else if (currentDatabase.Parent.DbProvider.DatabaseType == DatabaseType.SQLite)
                 {
@@ -231,8 +244,10 @@ namespace Kalman.Studio
                     Config.Console(msg + "，详细信息如下：\n" + result);
 
                     backgroundWorkerGenerate.ReportProgress(50, msg);
+                    cmd = string.Format("cd /d \"{0}\" \r\n{1}", codePath, cmd);
                     CmdHelper.CreateBat(Config.TEMP_BAT_FILENAME, cmd);
-                    CmdHelper.RunApp(Config.TEMP_BAT_FILENAME, ProcessWindowStyle.Normal, codePath);
+                    //CmdHelper.RunApp(Config.TEMP_BAT_FILENAME, ProcessWindowStyle.Normal, codePath);
+                    Config.MainForm.RunApp(Config.TEMP_BAT_FILENAME, codePath);
 
                     msg = "代码生成成功，是否打开目录？";
                     Config.Console(msg + "详细信息如下：\n" + result);
@@ -268,10 +283,12 @@ namespace Kalman.Studio
                     Config.Console(msg + "，详细信息如下：\n" + result);
 
                     backgroundWorkerGenerate.ReportProgress(50, msg);
-                    cmd = "bee run -gendoc=true -downdoc=true";
+                    cmd = string.Format("cd /d \"{0}\" \r\n", codePath);
+                    cmd += "bee run -gendoc=true -downdoc=true";
 
                     CmdHelper.CreateBat(Config.TEMP_BAT_FILENAME, cmd);
-                    CmdHelper.RunApp(Config.TEMP_BAT_FILENAME, ProcessWindowStyle.Normal, codePath);
+                    //CmdHelper.RunApp(Config.TEMP_BAT_FILENAME, ProcessWindowStyle.Normal, codePath);
+                    Config.MainForm.RunApp(Config.TEMP_BAT_FILENAME, codePath);
 
                     msg = "代码生成成功，是否打开目录？";
                     Config.Console(msg + "详细信息如下：\n" + result);
@@ -302,6 +319,8 @@ namespace Kalman.Studio
                     p.Start();
                 }
             }
+            this.DialogResult = result;
+            this.Close();
         }
 
         #region 控件设置      

@@ -83,6 +83,7 @@
             this.menuItemTemplateExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemPdmExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemOutput = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiTerminal = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemTools = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemDbSchemaViewer = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemDbDocBuilder = new System.Windows.Forms.ToolStripMenuItem();
@@ -521,7 +522,8 @@
             this.menuItemCodeExplorer,
             this.menuItemTemplateExplorer,
             this.menuItemPdmExplorer,
-            this.menuItemOutput});
+            this.menuItemOutput,
+            this.tsmiTerminal});
             this.menuItemView.Name = "menuItemView";
             this.menuItemView.Size = new System.Drawing.Size(60, 21);
             this.menuItemView.Text = "视图(&V)";
@@ -564,6 +566,15 @@
             this.menuItemOutput.Size = new System.Drawing.Size(188, 22);
             this.menuItemOutput.Text = "输出";
             this.menuItemOutput.Click += new System.EventHandler(this.menuItemOutput_Click);
+            // 
+            // tsmiTerminal
+            // 
+            this.tsmiTerminal.Checked = true;
+            this.tsmiTerminal.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmiTerminal.Name = "tsmiTerminal";
+            this.tsmiTerminal.Size = new System.Drawing.Size(188, 22);
+            this.tsmiTerminal.Text = "终端";
+            this.tsmiTerminal.Click += new System.EventHandler(this.tsnuTerminal_Click);
             // 
             // menuItemTools
             // 
@@ -836,5 +847,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiNewFile;
         private System.Windows.Forms.ToolStripMenuItem tsmiCreateProject;
         private System.Windows.Forms.ToolStripMenuItem tsmiCreateABPProject;
+        private System.Windows.Forms.ToolStripMenuItem tsmiTerminal;
     }
 }

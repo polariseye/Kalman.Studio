@@ -25,7 +25,6 @@ namespace Kalman.Studio.T4TemplateEngineHost
             AddAssemblyLocation(typeof(System.Data.DbType).Assembly.Location);  //System.Data.dll
             AddAssemblyLocation(typeof(System.Linq.Queryable).Assembly.Location);   //System.Core.dll
 
-            /*
             AddNamespace("Kalman");
             AddNamespace("Kalman.Extensions");
             AddNamespace("Kalman.Data");
@@ -46,7 +45,6 @@ namespace Kalman.Studio.T4TemplateEngineHost
             AddNamespace("System.Collections");
             AddNamespace("System.Collections.Generic");
             AddNamespace("System.Collections.Specialized");
-            */
         }
 
         /// <summary>
