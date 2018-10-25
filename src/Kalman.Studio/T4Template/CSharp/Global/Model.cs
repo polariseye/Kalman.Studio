@@ -115,14 +115,14 @@ namespace Kalman.Studio.T4Template.CSharp.Global
             
             #line default
             #line hidden
-            this.Write("\r\n\t\t/// <summary>\r\n        /// ");
+            this.Write("\r\n        /// <summary>\r\n        /// ");
             
             #line 54 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(c.Comment == "" ? c.Name : c.Comment.Replace("\r\n"," ")));
             
             #line default
             #line hidden
-            this.Write("\r\n        /// </summary>\r\n\t\tpublic ");
+            this.Write("\r\n        /// </summary>\r\n        public ");
             
             #line 56 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TypeUtil.DbType2CSharpTypeString(c.DataType)));

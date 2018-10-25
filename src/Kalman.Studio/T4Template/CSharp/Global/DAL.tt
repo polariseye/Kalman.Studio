@@ -75,11 +75,11 @@ namespace <#= nameSpace #>
         /// </summary>
         static <#= className#>DAL()
         {
-            getAllCommand = String.Format("SELECT {0} FROM <#=table.Name#>;", columns);
-            replaceCommand = "REPLACE INTO <#=table.Name#>  SET <#=String.Join(", ", colList.Select(tmp=>String.Format("{0}=@{0}", tmp.Name)))#> ;";
-            insertCommand = "INSERT INTO <#=table.Name#> (<#=String.Join(", ", colList.Select(tmp=>tmp.Name))#>) VALUES (<#=String.Join(", ", colList.Select(tmp=>String.Format("@{0}", tmp.Name)))#>);";
-            updateCommand = "UPDATE <#=table.Name#> SET <#=String.Join(", ", colList.Where(tmp=>!tmp.PrimaryKey).Select(tmp=>String.Format("{0}=@{0}", tmp.Name)))#> WHERE <#=String.Join(", ", colList.Where(tmp=>tmp.PrimaryKey).Select(tmp=>String.Format("{0}=@{0}", tmp.Name)))#>;";
-            deleteCommand = "DELETE FROM <#=table.Name#> WHERE <#=String.Join(", ", colList.Where(tmp=>tmp.PrimaryKey).Select(tmp=>String.Format("{0}=@{0}", tmp.Name)))#>;";
+            getAllCommand = String.Format("SELECT {0} FROM `<#=table.Name#>`;", columns);
+            replaceCommand = "REPLACE INTO `<#=table.Name#>` SET <#=String.Join(", ", colList.Select(tmp=>String.Format("`{0}`=@{0}", tmp.Name)))#> ;";
+            insertCommand = "INSERT INTO `<#=table.Name#>` (<#=String.Join(", ", colList.Select(tmp=>String.Format("`{0}`", tmp.Name)))#>) VALUES (<#=String.Join(", ", colList.Select(tmp=>String.Format("@{0}", tmp.Name)))#>);";
+            updateCommand = "UPDATE `<#=table.Name#>` SET <#=String.Join(", ", colList.Where(tmp=>!tmp.PrimaryKey).Select(tmp=>String.Format("`{0}`=@{0}", tmp.Name)))#> WHERE <#=String.Join(", ", colList.Where(tmp=>tmp.PrimaryKey).Select(tmp=>String.Format("`{0}`=@{0}", tmp.Name)))#>;";
+            deleteCommand = "DELETE FROM `<#=table.Name#>` WHERE <#=String.Join(", ", colList.Where(tmp=>tmp.PrimaryKey).Select(tmp=>String.Format("`{0}`=@{0}", tmp.Name)))#>;";
         }
 
         #endregion

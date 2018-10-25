@@ -50,10 +50,10 @@ namespace <#= nameSpace #>
         #region 属性
 <# foreach (SOColumn c in colList){ #>
 
-		/// <summary>
+        /// <summary>
         /// <#= c.Comment == "" ? c.Name : c.Comment.Replace("\r\n"," ") #>
         /// </summary>
-		public <#= TypeUtil.DbType2CSharpTypeString(c.DataType) #> <#= c.Name #> { get; set; }		
+        public <#= TypeUtil.DbType2CSharpTypeString(c.DataType) #> <#= c.Name #> { get; set; }		
 <# } #>
 
         #endregion

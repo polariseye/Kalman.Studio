@@ -167,40 +167,45 @@ foreach(SOColumn item in colList) {
         /// <summary>
         /// 初始化此类所能用到的所有sql语句
         /// </summary>
-        static ChargeLogDAL()
-        {
-            getAllCommand = String.Format(""SELECT {0} FROM ");
+        static ");
+            
+            #line 76 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\DAL.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(className));
+            
+            #line default
+            #line hidden
+            this.Write("DAL()\r\n        {\r\n            getAllCommand = String.Format(\"SELECT {0} FROM `");
             
             #line 78 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\DAL.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(table.Name));
             
             #line default
             #line hidden
-            this.Write(";\", columns);\r\n            replaceCommand = \"REPLACE INTO ");
+            this.Write("`;\", columns);\r\n            replaceCommand = \"REPLACE INTO `");
             
             #line 79 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\DAL.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(table.Name));
             
             #line default
             #line hidden
-            this.Write("  SET ");
+            this.Write("` SET ");
             
             #line 79 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\DAL.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(", ", colList.Select(tmp=>String.Format("{0}=@{0}", tmp.Name)))));
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(", ", colList.Select(tmp=>String.Format("`{0}`=@{0}", tmp.Name)))));
             
             #line default
             #line hidden
-            this.Write(" ;\";\r\n            insertCommand = \"INSERT INTO ");
+            this.Write(" ;\";\r\n            insertCommand = \"INSERT INTO `");
             
             #line 80 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\DAL.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(table.Name));
             
             #line default
             #line hidden
-            this.Write(" (");
+            this.Write("` (");
             
             #line 80 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\DAL.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(", ", colList.Select(tmp=>tmp.Name))));
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(", ", colList.Select(tmp=>String.Format("`{0}`", tmp.Name)))));
             
             #line default
             #line hidden
@@ -211,38 +216,38 @@ foreach(SOColumn item in colList) {
             
             #line default
             #line hidden
-            this.Write(");\";\r\n            updateCommand = \"UPDATE ");
+            this.Write(");\";\r\n            updateCommand = \"UPDATE `");
             
             #line 81 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\DAL.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(table.Name));
             
             #line default
             #line hidden
-            this.Write(" SET ");
+            this.Write("` SET ");
             
             #line 81 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\DAL.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(", ", colList.Where(tmp=>!tmp.PrimaryKey).Select(tmp=>String.Format("{0}=@{0}", tmp.Name)))));
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(", ", colList.Where(tmp=>!tmp.PrimaryKey).Select(tmp=>String.Format("`{0}`=@{0}", tmp.Name)))));
             
             #line default
             #line hidden
             this.Write(" WHERE ");
             
             #line 81 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\DAL.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(", ", colList.Where(tmp=>tmp.PrimaryKey).Select(tmp=>String.Format("{0}=@{0}", tmp.Name)))));
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(", ", colList.Where(tmp=>tmp.PrimaryKey).Select(tmp=>String.Format("`{0}`=@{0}", tmp.Name)))));
             
             #line default
             #line hidden
-            this.Write(";\";\r\n            deleteCommand = \"DELETE FROM ");
+            this.Write(";\";\r\n            deleteCommand = \"DELETE FROM `");
             
             #line 82 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\DAL.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(table.Name));
             
             #line default
             #line hidden
-            this.Write(" WHERE ");
+            this.Write("` WHERE ");
             
             #line 82 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\CSharp\Global\DAL.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(", ", colList.Where(tmp=>tmp.PrimaryKey).Select(tmp=>String.Format("{0}=@{0}", tmp.Name)))));
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(", ", colList.Where(tmp=>tmp.PrimaryKey).Select(tmp=>String.Format("`{0}`=@{0}", tmp.Name)))));
             
             #line default
             #line hidden
