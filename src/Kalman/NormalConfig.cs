@@ -12,7 +12,7 @@ namespace Kalman
         /// <summary>
         /// 我的文档
         /// </summary>
-        // public static string MyDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        public static string MyDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
         /// <summary>
         /// 设置目录
@@ -21,7 +21,7 @@ namespace Kalman
         {
             get
             {
-                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "KalmanStudioConfig");
+                string path = MyDocumentsPath + @"\Loamen\KalmanStudio";
                 var di = new DirectoryInfo(path);
                 if (!di.Exists)
                 {

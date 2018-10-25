@@ -31,32 +31,19 @@ namespace Kalman.Studio
             var dal = new DbConnDAL();
             var model = dal.FindOne(cbConnectionStrings.SelectedItem.ToString());
 
-            var tmpDbSchema = DbSchemaFactory.Create(model.Name);
-
-            Main m = this.ParentForm as Main;
-            m.ClearDbList();
-
-            IList<SODatabase> dbList = null;
-            this.Cursor = Cursors.WaitCursor;
-            try
-            {
-                dbList = tmpDbSchema.GetDatabaseList();
-            }
-            catch (Exception e1)
-            {
-                MsgBox.ShowErrorMessage("数据库连接异常:" + e1.Message);
-                return;
-            }
-            finally
-            {
-                this.Cursor = Cursors.Default;
-            }
-            this.dbSchema = tmpDbSchema;
+            dbSchema = DbSchemaFactory.Create(model.Name);
             DbSchemaHelper.Instance.CurrentSchema = dbSchema;
 
             TreeNode root = new TreeNode(model.Name, 0, 0);
             root.ToolTipText = model.ConnectionString;
             tvDatabase.Nodes.Add(root);
+
+            Main m = this.ParentForm as Main;
+            m.ClearDbList();
+
+            this.Cursor = Cursors.WaitCursor;
+            IList<SODatabase> dbList = dbSchema.GetDatabaseList();
+            this.Cursor = Cursors.Default;
 
             foreach (SODatabase db in dbList)
             {

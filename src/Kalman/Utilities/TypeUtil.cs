@@ -236,77 +236,12 @@ namespace Kalman.Utilities
         }
 
         /// <summary>
-        /// 转换为C#的类型字符串
-        /// </summary>
-        /// <param name="dbType">数据库类型</param>
-        /// <returns></returns>
-        public static String DbType2CSharpTypeString(DbType dbType)
-        {
-            switch (dbType)
-            {
-                case DbType.AnsiString:
-                case DbType.AnsiStringFixedLength:
-                case DbType.String:
-                case DbType.StringFixedLength:
-                    return "String";
-                case DbType.Binary:
-                    return "Byte[]";
-                case DbType.Boolean:
-                    return "Boolean";
-                case DbType.Byte://?
-                    return "Boolean";
-                case DbType.Currency:
-                    return "Double";
-                case DbType.Date:
-                    return "DateTime";
-                case DbType.DateTime:
-                    return "DateTime";
-                case DbType.DateTime2:
-                    return "DateTime";
-                case DbType.DateTimeOffset:
-                    return "DateTime";
-                case DbType.Decimal:
-                    return "Decimal";
-                case DbType.Double:
-                    return "Double";
-                case DbType.Guid:
-                    return "Guid";
-                case DbType.Int16:
-                    return "Int16";
-                case DbType.Int32:
-                    return "Int32";
-                case DbType.Int64:
-                    return "Int64";
-                case DbType.Object:
-                    return "Object";
-                case DbType.SByte:
-                    return "Boolean";
-                case DbType.Single:
-                    return "Single";
-                case DbType.Time:
-                    return "Timestamp";
-                case DbType.UInt16:
-                    return "UInt16";
-                case DbType.UInt32:
-                    return "UInt32";
-                case DbType.UInt64:
-                    return "UInt64";
-                case DbType.VarNumeric:
-                    return "Decimal";
-                case DbType.Xml:
-                    return "String";
-                default:
-                    return "String";
-            }
-        }
-
-        /// <summary>
         /// 将System.Data.DbType类型转换为对应Mysql Sequelize类型字符串
         /// </summary>
         /// <param name="dbType"></param>
         /// <param name="length"></param>
         /// <returns></returns>
-        public static string DbType2MysqlSequelizeString(DbType dbType, int length = 0)
+        public static string DbType2MysqlSequelizeString(DbType dbType,int length=0)
         {
             switch (dbType)
             {
