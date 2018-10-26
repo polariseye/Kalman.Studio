@@ -560,8 +560,8 @@
             // 
             // menuItemOutput
             // 
-            this.menuItemOutput.Checked = true;
-            this.menuItemOutput.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.menuItemOutput.Checked = false;
+            this.menuItemOutput.CheckState = System.Windows.Forms.CheckState.Unchecked;
             this.menuItemOutput.Name = "menuItemOutput";
             this.menuItemOutput.Size = new System.Drawing.Size(188, 22);
             this.menuItemOutput.Text = "输出";

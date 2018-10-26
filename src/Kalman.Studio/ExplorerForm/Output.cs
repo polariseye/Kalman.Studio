@@ -33,6 +33,21 @@ namespace Kalman.Studio
             }
         }
 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+        }
+
+        protected override void OnDockStateChanged(EventArgs e)
+        {
+            if (this.HideOnClose && this.DockState == DockState.Hidden)
+            {
+                Config.MainForm.ShowOutput(true);
+            }
+
+            base.OnDockStateChanged(e);
+        }
+
         /// <summary>
         /// 向输出窗口追加一行文本
         /// </summary>

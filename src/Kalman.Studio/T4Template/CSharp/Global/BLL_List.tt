@@ -1,4 +1,4 @@
-<#@ template language="C#" hostSpecific="true" debug="false" #>
+﻿<#@ template language="C#" hostSpecific="true" debug="false"  #>
 <#@ import namespace="System" #>
 <#@ import namespace="System.IO" #>
 <#@ import namespace="System.Xml" #>
@@ -17,38 +17,21 @@
 <#@ import namespace="Kalman.Data.DbProvider" #>
 <#@ import namespace="Kalman.Utilities" #>
 <#@ import namespace="Kalman.Studio.T4TemplateEngineHost" #>
-<#@ output extension=".cs" #>
 <# 
-	TableHost host = (TableHost)(Host); 
+	TableHost host = (TableHost)(Host);
 	SOTable table = host.Table;
-	List<SOColumn> list = host.ColumnList;
+	List<SOColumn> colList = host.ColumnList;
 	string nameSpace = host.GetString("NameSpace");
 	string className = host.GetString("ClassName");
+	string authorName = host.GetString("Author");
 	if(string.IsNullOrEmpty(nameSpace))nameSpace = "Entity";
 	if(string.IsNullOrEmpty(className))className = table.Name;
-	string tableName  = table.Name.EndsWith("s") ?table.Name.TrimEnd('s') : table.Name.Trim();
 #>
-using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-
-namespace <#= nameSpace #>.Core.Domain
-{
-	/// <summary>
-    /// <#= table.Comment == "" ? table.Name : table.Comment.Replace("\r\n"," ") #>
-    /// </summary>
-	[Serializable]
-	public partial class <#= tableName #> : BaseEntity
-	{
-		<# foreach (SOColumn c in list)
-		{ #>/// <summary>
-        /// <#= c.Comment == "" ? c.Name : c.Comment.Replace("\r\n"," ") #>
-        /// </summary>
-        <#=c.Nullable?"":"[Required]"#>
-        [DisplayName("<#= c.Comment == "" ? c.Name : c.Comment.Replace("\r\n"," ") #>")]
-		public <#= TypeUtil.DbType2TypeString(c.DataType) #> <#= c.Name #> { get; set; }
-		
-		<# } #>
-		
-	}
-}
+//***********************************************************************************
+// 文件名称：<#= className #>BLL.cs
+// 功能描述：<#= table.Comment == "" ? table.Name : table.Comment.Replace("\r\n"," ") #>
+// 数据表：<#= table.Name #>
+// 作者：<#= authorName #>
+// 日期：<#= DateTime.Now.ToDateTimeString() #>
+// 修改记录：
+//***********************************************************************************

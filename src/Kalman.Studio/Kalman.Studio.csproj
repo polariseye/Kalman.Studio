@@ -331,6 +331,67 @@
     <Compile Include="MainForm\StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="T4TemplateEngineHost\CSharpHostHelper.cs" />
+    <Compile Include="T4Template\Asp.Net\Ebboy\Controller\Controller.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Template\Asp.Net\Ebboy\Entity\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Template\Asp.Net\Ebboy\Service\IService.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Template\Asp.Net\Ebboy\Service\Service.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Template\Asp.Net\Ebboy\View\Create.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Template\Asp.Net\Ebboy\View\Delete.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Delete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Template\Asp.Net\Ebboy\View\Details.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Details.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Template\Asp.Net\Ebboy\View\Edit.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Template\Asp.Net\Ebboy\View\Index.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Template\CSharp\Global\BLL_List.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BLL_List.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Template\CSharp\Global\DAL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Template\CSharp\Global\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="ToolForm\NewProjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -854,51 +915,64 @@
     <Content Include="CodeLib\readme.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="T4Template\Asp.Net\Ebboy\Controller\Controller.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
+    <None Include="T4Template\Asp.Net\Ebboy\Controller\Controller.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Controller.cs</LastGenOutput>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="T4Template\Asp.Net\Ebboy\Entity\Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Model.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="T4Template\Asp.Net\Ebboy\Service\IService.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>IService.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="T4Template\Asp.Net\Ebboy\Service\Service.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Service.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="T4Template\Asp.Net\Ebboy\View\Create.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Create.cshtml</LastGenOutput>
+    <None Include="T4Template\Asp.Net\Ebboy\View\Create.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Create.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="T4Template\Asp.Net\Ebboy\View\Delete.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Delete.cshtml</LastGenOutput>
+    </None>
+    <None Include="T4Template\Asp.Net\Ebboy\View\Delete.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Delete.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="T4Template\Asp.Net\Ebboy\View\Details.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Details.cshtml</LastGenOutput>
+    </None>
+    <None Include="T4Template\Asp.Net\Ebboy\View\Details.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Details.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="T4Template\Asp.Net\Ebboy\View\Edit.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Edit.cshtml</LastGenOutput>
+    </None>
+    <None Include="T4Template\Asp.Net\Ebboy\View\Edit.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Edit.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="T4Template\Asp.Net\Ebboy\View\Index.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Index.cshtml</LastGenOutput>
+    </None>
+    <None Include="T4Template\Asp.Net\Ebboy\View\Index.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Index.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
+    <None Include="T4Template\CSharp\Global\Model.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Model.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="T4Template\CSharp\Global\DAL.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DAL.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="T4Template\CSharp\Global\BLL_List.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BLL_List.cs</LastGenOutput>
+    </None>
     <Content Include="T4Template\Node.js\Egg\.autod.conf.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

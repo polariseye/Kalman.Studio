@@ -18,7 +18,7 @@ namespace Kalman.Studio
     public partial class Main : Form
     {
         DatabaseExplorer dbExplorer = new DatabaseExplorer();
-        StartForm startForm = new StartForm();
+        //StartForm startForm = new StartForm();
         private Output output = new Output();
         private Terminal terminal = new Terminal();
         //DbSchemaViewer viewer = new DbSchemaViewer();
@@ -37,7 +37,7 @@ namespace Kalman.Studio
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
-            startForm.Show(dockPanel);
+            //startForm.Show(dockPanel);
             dbExplorer.Show(dockPanel);
             output.Show(dockPanel);
             terminal.Show(dockPanel);
@@ -76,7 +76,7 @@ namespace Kalman.Studio
             {
                 menuItemClose.Enabled =
                 menuItemCloseOther.Enabled =
-                menuItemCloseAll.Enabled = 
+                menuItemCloseAll.Enabled =
                 menuItemSave.Enabled =
                 menuItemSaveAs.Enabled = (ActiveMdiChild != null);
             }
@@ -84,7 +84,7 @@ namespace Kalman.Studio
             {
                 menuItemClose.Enabled = (dockPanel.ActiveDocument != null);
                 menuItemCloseOther.Enabled = (dockPanel.ActiveDocument != null);
-                menuItemCloseAll.Enabled = 
+                menuItemCloseAll.Enabled =
                 menuItemSave.Enabled =
                 menuItemSaveAs.Enabled = (dockPanel.DocumentsCount > 0);
             }
@@ -180,7 +180,7 @@ namespace Kalman.Studio
             }
         }
 
-         //退出程序
+        //退出程序
         private void menuItemExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -346,29 +346,38 @@ namespace Kalman.Studio
                 menuItemPdmExplorer.Checked = false;
             }
         }
-        public void ShowOutput()
+        public void ShowOutput(Boolean isJustChageCheckedState = false)
         {
+            if (isJustChageCheckedState)
+            {
+                menuItemOutput.Checked = !menuItemOutput.Checked;
+                return;
+            }
+
             if (!menuItemOutput.Checked)
             {
                 output.Show(dockPanel, DockState.DockBottomAutoHide);
+                menuItemOutput.Checked = true;
             }
             else
             {
                 output.Hide();
+                menuItemOutput.Checked = false;
             }
-            menuItemOutput.Checked = !menuItemOutput.Checked;
         }
         public void ShowTerminal(bool renew = false)
         {
-            if (!tsmiTerminal.Checked)
+            if (tsmiTerminal.Checked == false)
             {
-                terminal.Show(dockPanel, DockState.DockBottomAutoHide);
+                terminal.Show(dockPanel, DockState.DockBottom);
+                tsmiTerminal.Checked = true;
             }
             else
             {
                 terminal.Hide();
+                tsmiTerminal.Checked = false;
             }
-            tsmiTerminal.Checked = !tsmiTerminal.Checked;
+
             if (renew)
             {
                 terminal = new Terminal();

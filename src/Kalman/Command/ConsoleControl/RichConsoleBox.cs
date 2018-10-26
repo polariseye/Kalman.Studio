@@ -84,7 +84,26 @@ namespace Kalman.Command
             base.OnCreateControl();
         }
 
+        /// <summary>
+        /// 关闭所有资源
+        /// </summary>
+        public virtual void Close()
+        {
+            if (processCMD != null)
+            {
+                try
+                {
+                    processCMD.Kill();
+                }
+                catch
+                { }
+            }
+        }
 
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
 
         /// <summary>
         /// Scroll to the last line of text when the console is resized
@@ -276,7 +295,7 @@ namespace Kalman.Command
                                         commandLineStartIndex = this.Text.Length;
 
                                     this.AppendText(newCommand);
-                                    
+
                                     e.SuppressKeyPress = true;
                                     //StandardInputWriter.WriteLine(newCommand);
                                     //if (!scCommandLineHistory.Contains(newCommand))
@@ -354,8 +373,6 @@ namespace Kalman.Command
         /// </summary>
         ~RichConsoleBox()
         {
-            if (processCMD != null)
-                processCMD.Close();
         }
 
         public void BeginUpdate()
@@ -475,9 +492,11 @@ namespace Kalman.Command
                 else
                 {
                     var dic = text.Replace("\0", "").Trim();
-                    if (dic.EndsWith(">")) {
+                    if (dic.EndsWith(">"))
+                    {
                         dic = dic.TrimEnd('>');
-                        if (Directory.Exists(dic)) {
+                        if (Directory.Exists(dic))
+                        {
                             cmdDirectory = new DirectoryInfo(dic).FullName;
                             processCMD.StartInfo.WorkingDirectory = cmdDirectory;
                         }

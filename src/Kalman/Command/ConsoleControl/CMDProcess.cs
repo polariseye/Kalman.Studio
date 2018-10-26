@@ -42,6 +42,9 @@ namespace Kalman.Command
             processCMD.StartInfo.WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.System);
             processCMD.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
+            // set current directory
+            cmdDirectory = processCMD.StartInfo.WorkingDirectory;
+
             // Process
             processCMD.Exited += new EventHandler(processCMD_Exited);
             processCMD.EnableRaisingEvents = true;
@@ -70,7 +73,6 @@ namespace Kalman.Command
             threadReader.IsBackground = true;
             threadReader.Start(reader);
             return threadReader;
-
         }
 
         /// <summary>
@@ -124,9 +126,12 @@ namespace Kalman.Command
         /// <param name="e"></param>
         private void processCMD_Exited(object sender, EventArgs e)
         {
-
-            this.Invoke(ProcessExitedCallback);
-
+            try
+            {
+                this.Invoke(ProcessExitedCallback);
+            }
+            catch
+            { }
         }
 
         #endregion

@@ -102,7 +102,6 @@
             this.Name = "Terminal";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockBottom;
             this.Text = "终端";
-            this.Load += new System.EventHandler(this.Terminal_Load);
             this.cms.ResumeLayout(false);
             this.ResumeLayout(false);
 

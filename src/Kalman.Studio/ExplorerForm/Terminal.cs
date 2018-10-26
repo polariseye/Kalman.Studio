@@ -40,12 +40,12 @@ namespace Kalman.Studio
             if (this.rtbCommand.InvokeRequired)
             {
                 RunAppCallback d = new RunAppCallback(RunApp);
-                this.Invoke(d, new object[] { appName,workingDirectory });
+                this.Invoke(d, new object[] { appName, workingDirectory });
             }
             else
             {
                 if (string.IsNullOrEmpty(appName)) return;
-                rtbCommand.RunApp(appName,workingDirectory);
+                rtbCommand.RunApp(appName, workingDirectory);
             }
         }
 
@@ -57,15 +57,11 @@ namespace Kalman.Studio
         {
             AppendText(text + Environment.NewLine);
         }
-
-        private void Terminal_Load(object sender, EventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
-            rtbCommand.Exit += new Command.RichConsoleBox.ExitEventHandler(rtbCommand_Exit);
-        }
-
-        private void rtbCommand_Exit(object sender, System.EventArgs e)
-        {
+            rtbCommand.Close();
             Config.MainForm.ShowTerminal(true);
+            base.OnClosing(e);
         }
 
         private void menuItemPaste_Click(object sender, EventArgs e)
