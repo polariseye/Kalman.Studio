@@ -301,6 +301,69 @@ namespace Kalman.Utilities
         }
 
         /// <summary>
+        /// 数据库类型转换为golang类型的字符串
+        /// </summary>
+        /// <param name="dbType">数据库类型</param>
+        /// <returns></returns>
+        public static String DbType2GolangTypeString(DbType dbType)
+        {
+            switch (dbType)
+            {
+                case DbType.AnsiString:
+                case DbType.AnsiStringFixedLength:
+                case DbType.String:
+                case DbType.StringFixedLength:
+                    return "string";
+                case DbType.Binary:
+                    return "byte[]";
+                case DbType.Boolean:
+                    return "bool";
+                case DbType.Byte://?
+                    return "bool";
+                case DbType.Currency:
+                    return "float64";
+                case DbType.Date:
+                    return "time.Time";
+                case DbType.DateTime:
+                    return "time.Time";
+                case DbType.DateTime2:
+                    return "time.Time";
+                case DbType.DateTimeOffset:
+                    return "time.Time";
+                case DbType.Decimal:
+                    return "float64";
+                case DbType.Double:
+                    return "float64";
+                case DbType.Guid:
+                    return "string";
+                case DbType.Int16:
+                    return "int64";
+                case DbType.Int32:
+                    return "int32";
+                case DbType.Int64:
+                    return "Int64";
+                case DbType.SByte:
+                    return "bool";
+                case DbType.Single:
+                    return "float32";
+                case DbType.Time:
+                    return "time.Time";
+                case DbType.UInt16:
+                    return "uint16";
+                case DbType.UInt32:
+                    return "uint32";
+                case DbType.UInt64:
+                    return "uint64";
+                case DbType.VarNumeric:
+                    return "float64";
+                case DbType.Xml:
+                    return "String";
+                default:
+                    return "String";
+            }
+        }
+
+        /// <summary>
         /// 将System.Data.DbType类型转换为对应Mysql Sequelize类型字符串
         /// </summary>
         /// <param name="dbType"></param>

@@ -392,6 +392,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="T4Template\Golang\Model\Model.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="ToolForm\NewProjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -972,6 +977,11 @@
     <None Include="T4Template\CSharp\Global\BLL_List.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>BLL_List.cs</LastGenOutput>
+    </None>
+    <None Include="T4Template\Golang\Model\Model.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Model.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="T4Template\Node.js\Egg\.autod.conf.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

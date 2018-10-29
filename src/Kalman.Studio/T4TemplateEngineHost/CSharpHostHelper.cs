@@ -71,5 +71,22 @@ namespace Kalman.Studio.T4TemplateEngineHost
         {
             return dt.ToString("yyyy-MM-dd");
         }
+
+        /// <summary>
+        /// 获取重复字符串
+        /// </summary>
+        /// <param name="val">字符串值</param>
+        /// <param name="count">数量</param>
+        /// <returns></returns>
+        public static String GetRepeatString(String val, Int32 count)
+        {
+            var result = String.Empty;
+            for (var i = 0; i < count; i++)
+            {
+                result += val;
+            }
+
+            return result;
+        }
     }
 }
