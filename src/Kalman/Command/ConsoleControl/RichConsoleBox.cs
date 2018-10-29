@@ -309,21 +309,13 @@ namespace Kalman.Command
                 case Keys.Enter:
                     // Get command line
                     string commandLine = GetCommandLine();
+                    // Send the commandLine to standardInput or String.Empty for built-in commands (forces command prompt display)
+                    StandardInputWriter.WriteLine(commandLine);
                     if (!string.IsNullOrWhiteSpace(commandLine))
                     {
-                        // Send the commandLine to standardInput or String.Empty for built-in commands (forces command prompt display)
-                        StandardInputWriter.WriteLine(commandLine);
                         // Add this command line to the command line history
                         if (!scCommandLineHistory.Contains(commandLine))
                             scCommandLineHistory.Add(commandLine);
-                    }
-                    else
-                    {
-                        var selectedText = this.SelectedText;
-                        if (!string.IsNullOrEmpty(selectedText))
-                        {
-                            Clipboard.SetText(selectedText.Trim()); // copy to clipboard
-                        }
                     }
                     break;
                 default:
