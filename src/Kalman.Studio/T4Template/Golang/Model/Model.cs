@@ -62,175 +62,189 @@ namespace Kalman.Studio.T4Template.Golang.Model
             
             #line default
             #line hidden
-            this.Write("\r\n\r\n// 调度日志\r\ntype ");
+            this.Write("\r\n\r\n// 模块名\r\nconst ModuleName = \"");
             
             #line 32 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(className));
             
             #line default
             #line hidden
+            this.Write("\"\r\n\r\n// 调度日志\r\ntype ");
+            
+            #line 35 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(className));
+            
+            #line default
+            #line hidden
             this.Write(" struct {\r\n");
             
-            #line 33 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 36 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
  foreach (SOColumn c in colList){ 
             
             #line default
             #line hidden
             this.Write("\r\n        // ");
             
-            #line 35 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 38 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(c.Comment == "" ? c.Name : c.Comment.Replace("\r\n"," ")));
             
             #line default
             #line hidden
             this.Write("\r\n        ");
             
-            #line 36 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 39 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(c.Name));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 36 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 39 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TypeUtil.DbType2GolangTypeString(c.DataType)));
             
             #line default
             #line hidden
             this.Write(" `gorm:\"Column:");
             
-            #line 36 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 39 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(c.Name));
             
             #line default
             #line hidden
             
-            #line 36 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 39 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(c.PrimaryKey?";PRIMARY_KEY":""));
             
             #line default
             #line hidden
             this.Write("\"`\r\n");
             
-            #line 37 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 40 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
  } 
             
             #line default
             #line hidden
             this.Write("}\r\n\r\n// 表名\r\nfunc (this *");
             
-            #line 41 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 44 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(className));
             
             #line default
             #line hidden
             this.Write(") TableName() string {\r\n\treturn \"");
             
-            #line 42 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 45 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(table.Name));
             
             #line default
             #line hidden
             this.Write("\"\r\n}\r\n\r\n// 新建调度模型对象\r\nfunc New");
             
-            #line 46 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 49 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(className));
             
             #line default
             #line hidden
             this.Write("() *");
             
-            #line 46 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 49 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(className));
             
             #line default
             #line hidden
             this.Write(" {\r\n\treturn &");
             
-            #line 47 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 50 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(className));
             
             #line default
             #line hidden
             this.Write("{}\r\n}\r\n\r\n// 新建调度模型对象\r\n");
             
-            #line 51 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 54 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
 foreach(SOColumn item in colList) {
             
             #line default
             #line hidden
             this.Write("// ");
             
-            #line 52 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 55 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Name.FirstLower()));
             
             #line default
             #line hidden
             this.Write(":");
             
-            #line 52 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 55 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Comment));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 53 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 56 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
 }
             
             #line default
             #line hidden
             this.Write("func New");
             
-            #line 54 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 57 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(className));
             
             #line default
             #line hidden
             this.Write("2(");
             
-            #line 54 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 57 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(", ", colList.Select(tmp=>String.Format("{0} {1}",tmp.Name.FirstLower(),TypeUtil.DbType2GolangTypeString(tmp.DataType))))));
             
             #line default
             #line hidden
             this.Write(") *");
             
-            #line 54 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 57 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(className));
             
             #line default
             #line hidden
-            this.Write(" {\r\n\treturn &ScheduleInfo{\r\n");
+            this.Write(" {\r\n\treturn &");
             
-            #line 56 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 58 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(className));
+            
+            #line default
+            #line hidden
+            this.Write("{\r\n");
+            
+            #line 59 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
 foreach(SOColumn item in colList) {
             
             #line default
             #line hidden
             this.Write("\t\t");
             
-            #line 57 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 60 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Name));
             
             #line default
             #line hidden
             this.Write(": ");
             
-            #line 57 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 60 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(CSharpHostHelper.GetRepeatString(" ", maxColumnNameLength-item.Name.Length)));
             
             #line default
             #line hidden
             
-            #line 57 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 60 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Name.FirstLower()));
             
             #line default
             #line hidden
             this.Write(",\r\n");
             
-            #line 58 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
+            #line 61 "E:\testCode\CsharpCode\Kalman.Studio\src\Kalman.Studio\T4Template\Golang\Model\Model.tt"
 }
             
             #line default

@@ -29,7 +29,7 @@ namespace Kalman.Studio.T4TemplateEngineHost
                 result.Append(tmpStr.Substring(0, 1).ToUpper() + tmpStr.Substring(1));
             }
 
-            return String.Join("", fieldList);
+            return result.ToString();
         }
 
         /// <summary>

@@ -341,7 +341,7 @@ namespace Kalman.Utilities
                 case DbType.Int32:
                     return "int32";
                 case DbType.Int64:
-                    return "Int64";
+                    return "int64";
                 case DbType.SByte:
                     return "bool";
                 case DbType.Single:
@@ -357,9 +357,9 @@ namespace Kalman.Utilities
                 case DbType.VarNumeric:
                     return "float64";
                 case DbType.Xml:
-                    return "String";
+                    return "string";
                 default:
-                    return "String";
+                    return "string";
             }
         }
 

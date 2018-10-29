@@ -28,6 +28,9 @@
 #>
 package <#= nameSpace #>
 
+// 模块名
+const ModuleName = "<#=className#>"
+
 // 调度日志
 type <#=className#> struct {
 <# foreach (SOColumn c in colList){ #>
@@ -52,7 +55,7 @@ func New<#=className#>() *<#=className#> {
 // <#=item.Name.FirstLower() #>:<#=item.Comment #>
 <#}#>
 func New<#=className#>2(<#=String.Join(", ", colList.Select(tmp=>String.Format("{0} {1}",tmp.Name.FirstLower(),TypeUtil.DbType2GolangTypeString(tmp.DataType))))#>) *<#=className#> {
-	return &ScheduleInfo{
+	return &<#=className#>{
 <#foreach(SOColumn item in colList) {#>
 		<#=item.Name#>: <#=CSharpHostHelper.GetRepeatString(" ", maxColumnNameLength-item.Name.Length)#><#=item.Name.FirstLower()#>,
 <#}#>
